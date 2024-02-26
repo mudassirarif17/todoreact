@@ -1,29 +1,14 @@
-import React , {useState} from 'react'
-import MovieCard from './Movie/MovieCard'
-import Navbar1 from './Movie/Navbar';
+import React from 'react'
+import Items from './components/Items'
+import Cart from './components/Cart'
 
 const App = () => {
-  const [mode , setMode] = useState(false);
-  const [text , setText] = useState("Light Mode");
-
-  const changeMode = () =>{
-    
-    if(mode == false){
-      setText("Dark Mode");
-      setMode(true);
-      document.body.style = 'background : #121212'
-      
-    }
-    else{
-      setText("Light Mode");
-      setMode(false);
-      document.body.style = 'background : white'
-    }
-  }
   return (
-    <div>
-      <Navbar1 text={text} changeMode={changeMode} mode={mode} />
-      <MovieCard mode={mode} />
+    <div style={{display : "flex" , flexDirection : "column" , alignItems : "center"}}>
+        <Items name={"Hp Laptop"} price={50000}  qty={1}/>
+        <Items name={"Dell Laptop"} price={60000} qty={1}/>
+        <Items name={"Lenovo Laptop"} price={40000} qty={1}/>
+        <Cart/>
     </div>
   )
 }
